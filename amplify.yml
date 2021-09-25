@@ -1,15 +1,15 @@
 version: 1
 frontend:
   phases:
-    preTest:
-      commands:
-        - npm run test
     preBuild:
       commands:
         - npm ci
     build:
       commands:
         - npm run build
+    postTest:
+      commands:
+        - npm run test
   artifacts:
     baseDirectory: dist
     files:
