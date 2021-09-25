@@ -1,0 +1,6 @@
+{
+  "eslint.validate": ["html", "javascript"],
+  "eslint.alwaysShowStatus": true,
+  "prettier.semi": true,
+  "prettier.singleQuote": true
+}
