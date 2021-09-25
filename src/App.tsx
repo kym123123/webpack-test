@@ -1,16 +1,14 @@
 import React, { ReactNode } from 'react';
-import Test from '@components/Test';
-import Compo1 from '@components/Compo1';
+import { Provider } from 'react-redux';
+import { store } from '@modules/index';
 
-const App = (): ReactNode => {
+import Counter from '@components/Counter';
+
+const App = () => {
   return (
-    <div>
-      Hello react
-      <p>hello hello</p>
-      <p>hello hello</p>
-      <Test />
-      <Compo1 />
-    </div>
+    <Provider store={store}>
+      <Counter />
+    </Provider>
   );
 };
 
