@@ -42,8 +42,9 @@ module.exports = {
   ],
   devtool: 'source-map',
   devServer: {
-    contentBase: './dist', // localhost:8080 기본경로
+    contentBase: './dist', // localhost:3000 기본경로
     hot: true,
+    port: 3000,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.ts'],
