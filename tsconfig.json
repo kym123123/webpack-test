@@ -2,14 +2,15 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["DOM", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020"],
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "commonjs",
     "baseUrl": "./",
     "paths": {
+      "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@modules/*": ["src/modules/*"],
       "@utils/*": ["src/utils/*"],
-      "@test/*": ["src/__test__/*"]
+      "@tests/*": ["src/__tests__/*"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

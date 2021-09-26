@@ -10,10 +10,11 @@ module.exports = {
       {
         root: '.',
         alias: {
+          '@': './src',
           '@components': './src/components',
           '@modules': './src/modules',
           '@utils': './src/utils',
-          '@test': './src/__test__',
+          '@tests': './src/__tests__',
         },
       },
     ],

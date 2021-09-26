@@ -1,29 +1,27 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { RootState } from '@modules/index';
 import { decrement, increment } from '@modules/counter';
 
-const Counter = () => {
-  const dispatch = useDispatch();
-  const { value } = useSelector((state: RootState) => state.counter);
+import '@/index.css';
 
-  const handleValue = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if (e.target.dataset.name === 'increase') dispatch(increment());
-    else dispatch(decrement());
-  };
+const Counter = () => {
+  // const dispatch = useDispatch();
+  // const { value } = useSelector((state: RootState) => state.counter);
 
   return (
     <>
       <h1>Counter</h1>
       <CounterContainer>
-        <button onClick={handleValue} data-name="increase">
-          +
-        </button>
-        <div>{value}</div>
-        <button onClick={handleValue} data-name="decrease">
-          -
-        </button>
+        {/* <button onClick={() => dispatch(increment())} data-name="increase"> */}
+        {/* + */}
+        {/* </button> */}
+        <div className=".zero">0</div>
+        {/* <div>{value}</div> */}
+        {/* <button onClick={() => dispatch(decrement())} data-name="decrease"> */}
+        {/* - */}
+        {/* </button> */}
       </CounterContainer>
     </>
   );
