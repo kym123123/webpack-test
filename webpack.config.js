@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 let mode = 'development';
 let target = 'web';
@@ -32,6 +34,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
+    // publicPath: './dist',
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].chunk.js',
     assetModuleFilename: 'images/[hash][ext][query]',
   },
   plugins: [
@@ -39,14 +44,21 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({ template: './src/index.html' }),
     new Dotenv(),
+    new BundleAnalyzerPlugin(),
   ],
   devtool: 'source-map',
   devServer: {
-    contentBase: './dist', // localhost:3000 기본경로
+    contentBase: path.resolve(__dirname, 'dist'), // localhost:3001 기본경로
     hot: true,
-    port: 3000,
+    port: 3001,
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.ts'],
   },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all',
+  //   },
+  // },
 };
