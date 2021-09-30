@@ -19,6 +19,8 @@ const Counter = () => {
     <>
       <h1 onClick={() => getFunction()}>Counter</h1>
       <Link to="/notFound">Notfound</Link>
+      <br />
+      <Link to="/profile">profile</Link>
       <CounterContainer>
         {/* <button onClick={() => dispatch(increment())} data-name="increase"> */}
         {/* + */}

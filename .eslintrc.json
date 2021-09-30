@@ -18,7 +18,7 @@
       }
     }
   },
-  "plugins": ["import", "html", "react"],
+  "plugins": ["import", "html", "react", "testing-library", "jest-dom"],
   "extends": [
     "airbnb-base",
     "prettier",
@@ -28,6 +28,10 @@
     "plugin:import/typescript"
   ],
   "rules": {
+    "jest-dom/prefer-checked": "error",
+    "jest-dom/prefer-enabled-disabled": "error",
+    "jest-dom/prefer-required": "error",
+    "jest-dom/prefer-to-have-attribute": "error",
     "prettier/prettier": [
       "error",
       { "singleQuote": true, "trailingComma": "all" }
@@ -66,5 +70,15 @@
         "ignoreTemplateLiterals": true
       }
     ] // prettier의 printWidth 옵션 대신 사용
-  }
+  },
+  "overrides": [
+    {
+      // 3) Now we enable eslint-plugin-testing-library rules or preset only for matching files!
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ]
 }

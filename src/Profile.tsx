@@ -1,3 +1,4 @@
+import React from 'react';
 interface IProfileProps {
   username: string;
   name: string;
