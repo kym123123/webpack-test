@@ -20,11 +20,9 @@ describe('test null', () => {
   let a = 1;
   beforeAll(() => {
     a = 3;
-    console.log(a, 'before All');
   });
 
   it('null', () => {
-    console.log(a);
     const n = null;
     expect(n).toBeNull();
     expect(n).toBeDefined();
@@ -34,7 +32,6 @@ describe('test null', () => {
   });
 
   it('zero', () => {
-    console.log(a);
     const z = 0;
     expect(z).not.toBeNull();
     expect(z).toBeDefined();
@@ -44,7 +41,6 @@ describe('test null', () => {
   });
 
   it('adding floating point numbers', () => {
-    console.log(a);
     const value = 0.1 + 0.2;
     expect(value).toBeCloseTo(0.3);
   });
