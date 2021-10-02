@@ -18,7 +18,7 @@ const App = () => {
             <Route path="/" exact component={Counter} />
             <Route
               path="/profile"
-              render={() => <Profile name={'min'} username={'laim'} />}
+              render={() => <Profile name={'min'} username={'liam'} />}
             />
             <Route path="/notFound" component={NotFound} />
           </Switch>

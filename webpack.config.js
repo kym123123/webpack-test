@@ -20,6 +20,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: {
@@ -35,16 +39,19 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     // publicPath: './dist',
-    filename: '[name].bundle.js',
-    chunkFilename: '[name].chunk.js',
+    filename: '[name].[contenthash].js',
+    chunkFilename: '[contenthash].chunk.js',
     assetModuleFilename: 'images/[hash][ext][query]',
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      title: 'react-webpack-liam',
+    }),
     new Dotenv(),
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
   devtool: 'source-map',
   devServer: {
@@ -56,9 +63,10 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.ts'],
   },
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'all',
-  //   },
-  // },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 };
