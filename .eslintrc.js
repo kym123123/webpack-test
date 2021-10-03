@@ -9,8 +9,13 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'prettier',
+    'plugin:react/jsx-runtime', // jsx 쓸때 import React 없이 사용가능
   ],
   rules: {
+    'no-plusplus': 0,
+    'no-param-reassign': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'react/button-has-type': 0,
     'no-console': 0,
     'linebreak-style': 0,
     'import/prefer-default-export': 0,

@@ -1,13 +1,21 @@
-import React, { useCallback, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 
-const DelayedToggle = () => {
+const DelayedToggle: FC = () => {
   const [toggle, setToggle] = useState(false);
+
   const onToggle = useCallback(() => {
-    console.log(toggle);
     setTimeout(() => setToggle(toggle => !toggle), 1000);
   }, []);
 
-  return <div></div>;
+  return (
+    <div>
+      <button onClick={onToggle}>토글</button>
+      <div>
+        상태: <span>{toggle ? 'ON' : 'OFF'}</span>
+      </div>
+      {toggle && <div>야호</div>}
+    </div>
+  );
 };
 
 export default DelayedToggle;
